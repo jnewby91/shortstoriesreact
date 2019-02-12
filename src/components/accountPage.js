@@ -88,12 +88,16 @@ class AccountPage extends Component{
                 story = {'Lorem '}
                 date = {'1/10/2019'}
             />
-        </div>
-        
-        
-        )
 
-        
+
+            <Collections 
+                title = {'Title'}
+                category = {'category'}
+                story = {'Lorem '}
+                date = {'1/10/2019'}
+            />
+        </div>
+        )
     }
 }
 

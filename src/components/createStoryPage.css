@@ -1,0 +1,20 @@
+.prompt {
+    width: 50%;
+    margin: 10% auto;
+    border: 1px solid grey; 
+}
+
+.prompt h2 {
+    text-align: center; 
+
+}
+
+.prompt p{
+    padding: 20px; 
+}
+
+.prompt button {
+    display: block;
+    margin: 50px auto;
+}
+

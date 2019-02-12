@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './index.css';
 import App from './App';
 import AccountPage from './components/accountPage'
+import CreateStory from './components/createStoryPage'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -12,8 +13,7 @@ ReactDOM.render(
         <div>
             <Route exact path='/' component={App}/>
             <Route exact path='/account-page' component={AccountPage}/>
-
-            <Route exact path='/create-a-story-page' component={AccountPage}/>
+            <Route exact path='/create-a-story-page' component={CreateStory}/>
             
         </div>
     </Router>
