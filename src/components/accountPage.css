@@ -1,0 +1,35 @@
+.buttonPanel {
+    position: relative;
+    margin-top: 100px;
+    bottom: -250px;
+  }
+  
+  .tagline{
+    font-style: italic; 
+    margin-top: 10px; 
+  }
+
+  .buttonPanel .button img{
+    width: 25px;
+  }
+
+  .pageTitle {
+  margin-top: 200px;
+  text-align: center;
+}
+
+  .collections {
+    width: 30%;
+    margin: 50px auto;
+    background-color: lightgrey;
+    padding: 2%;
+}
+
+  .collections p {
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+  
+
