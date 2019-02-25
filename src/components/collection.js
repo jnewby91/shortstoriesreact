@@ -8,6 +8,9 @@ export default function Collections(props) {
             <p>{props.category}</p>
             <p>{props.story}</p>
             <p>{props.date}</p> 
+            <button>View</button>
+            <button>Edit</button>
+            <button>Delete</button>
         </div>
     )
 }

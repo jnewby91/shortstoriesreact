@@ -56,6 +56,7 @@ class AccountPage extends Component{
                             {/* <img src="https://drive.google.com/file/d/1I7CDOykwu9_Et1r1eN22nXQjqSEC4QM2/view?usp=sharing" alt="logout.png"/> */}
                             <p>Logout</p>
                         </div>     
+                        
                         </div>
                 </div>
                 }
