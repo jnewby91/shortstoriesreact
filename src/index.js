@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 
+'react-router-dom';
+import store from './store'; 
+import {Provider} from 'react-redux'; 
 
 import './index.css';
 import App from './App';
@@ -12,10 +15,12 @@ import LogIn from './log-in';
 ReactDOM.render(
     <Router>
         <div>
-            <Route exact path='/' component={App}/>
-            <Route exact path='/account-page' component={AccountPage}/>
-            <Route exact path='/create-a-story-page' component={CreateStory}/>
-            <Route exact path='/log-in' component={LogIn}/>
+            <Provider store={store}>
+                <Route exact path='/' component={App}/>
+                <Route exact path='/account-page' component={AccountPage}/>
+                <Route exact path='/create-a-story-page' component={CreateStory}/>
+                {/* <Route exact path='/log-in' component={LogIn}/> */}
+            </Provider>
         </div>
     </Router>
 
