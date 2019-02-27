@@ -10,7 +10,7 @@ import App from './App';
 import AccountPage from './components/accountPage'
 import CreateStory from './components/createStoryPage'
 import * as serviceWorker from './serviceWorker';
-import LogIn from './log-in';
+import LogInPage from './LogInPage';
 
 ReactDOM.render(
     <Router>
@@ -19,7 +19,7 @@ ReactDOM.render(
                 <Route exact path='/' component={App}/>
                 <Route exact path='/account-page' component={AccountPage}/>
                 <Route exact path='/create-a-story-page' component={CreateStory}/>
-                {/* <Route exact path='/log-in' component={LogIn}/> */}
+                <Route exact path='/log-in' component={LogInPage}/>
             </Provider>
         </div>
     </Router>

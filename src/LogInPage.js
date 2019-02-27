@@ -1,10 +1,10 @@
 import React, {Component} from 'react'; 
 import {Link} from 'react-router-dom'; 
 import './log-in.css' 
-import {LogInForm} from './logInForm';
+import {LogInForm} from './LogInForm';
 
 
-export class LogIn extends React.Component{
+export class LogInPage extends React.Component{
     constructor(props){
         super(props); 
     
@@ -20,7 +20,7 @@ export class LogIn extends React.Component{
                         <Link to="submit-writing-prompt"><li>Submit Writing Prompt</li></Link>
                     </ul>
                 </nav>
-                {/* <LogInForm /> */}
+                <LogInForm />
             </div>
         )
 
@@ -29,4 +29,8 @@ export class LogIn extends React.Component{
     }
 }
 
-// export default connect(mapStateToProps)(Login);
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default connect(mapStateToProps)(LoginPage);
