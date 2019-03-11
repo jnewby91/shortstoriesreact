@@ -8,7 +8,8 @@ export const registerUser = user => dispatch => {
     return fetch(`${API_BASE_URL}/api/users`, {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
+            'Content-type': 'application/json',
+            mode: 'no-cors'
         },
         body: JSON.stringify(user)
     })

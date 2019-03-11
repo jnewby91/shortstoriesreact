@@ -18,6 +18,7 @@ export const clearAuth = () => ({
 });
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
+
 export const authRequest = () => ({
     type: AUTH_REQUEST
 });
@@ -48,9 +49,6 @@ export const login = (username, password) => dispatch => {
     dispatch(authRequest());
     return fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
         body: JSON.stringify({
             username,
             password
@@ -67,7 +65,7 @@ export const login = (username, password) => dispatch => {
                     code === 401
                         ? 'Incorrect username or password'
                         : 'Unable to login, please try again';
-                dispatch(authError(err))
+                dispatch(authError(err));
                 // Could not authenticate, so return a SubmissionError for Redux Form
                 return Promise.reject(
                     new SubmissionError({

@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {reduxForm, Field} from 'redux-form';
+import { login } from './actions/auth';
 
 
 export class LogInForm extends Component {
     onSubmit(values) {
-        console.log(values); 
+        console.log(values);
+        this.props.dispatch(login(values.email,values.password))
     }
 
     render() {
@@ -14,7 +16,7 @@ export class LogInForm extends Component {
             <label htmlFor="email">E-mail Address:</label>
             <Field name="email" id="email" type="email" component="input" />
             <label htmlFor="password">Password:</label>
-            <Field name="password" id="password" type="text" component="input" />
+            <Field name="password" id="password" type="password" component="input" />
             <button type="submit">Submit</button>
         </form>
         ); 
