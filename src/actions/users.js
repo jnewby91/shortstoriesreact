@@ -5,11 +5,12 @@ import { normalizeResponseErrors } from './utils';
 
 //POST user fetch request
 export const registerUser = user => dispatch => {
+    console.log(user); 
     return fetch(`${API_BASE_URL}/api/users`, {
         method: 'POST',
         headers: {
-            'Content-type': 'application/json',
-            mode: 'no-cors'
+            'content-type': 'application/json',
+            "mode": 'no-cors'
         },
         body: JSON.stringify(user)
     })

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm, Field, focus} from 'redux-form';
 import { login } from './actions/auth';
 
 
@@ -24,5 +24,7 @@ export class LogInForm extends Component {
 }
 
 export default reduxForm({
-    form: 'login'
+    form: 'login', 
+    onSubmitFail: (errors, dispatch) => 
+    dispatch(focus('login', 'username'))
 })(LogInForm);

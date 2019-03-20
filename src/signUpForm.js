@@ -8,7 +8,7 @@ export class SignUpForm extends Component {
 
     onSubmit(values){
         console.log(values); 
-        this.props.dispatch(registerUser(values.email, values.firstName, values.lastName,values.tagline, values.password ))
+        this.props.dispatch(registerUser(values))
     }
 
     render() {
