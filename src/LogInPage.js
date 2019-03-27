@@ -13,6 +13,10 @@ export class LogInPage extends React.Component{
     }
 
     render(){
+        if(this.props.loggedIn){
+            return <Redirect to="/account-page"/>
+        }
+        
         return(
             <div> 
                 <nav>

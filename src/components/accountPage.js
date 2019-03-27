@@ -4,7 +4,12 @@ import {Link} from 'react-router-dom';
 import Sidebar from 'react-sidebar'; 
 import Collections from './collection'; 
 
-
+/**
+ * TODO: Connect AccountPage Component to mapStateToProps 
+ * TODO:I will need to add map the stories in a collection     variable that would allow the array objects to be displayed on the page
+ * 
+ * 
+ */
 
 
 class AccountPage extends Component{

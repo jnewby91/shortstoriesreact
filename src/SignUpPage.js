@@ -4,8 +4,14 @@ import {Link, Redirect} from 'react-router-dom';
 
 import SignUpForm from './signUpForm'; 
 
-export function SignUpPage(props){
-
+export class SignUpPage extends React.Component{
+    constructor(props){
+        super(props); 
+}
+   render(){
+       if(this.props.loggedIn) {
+           return <Redirect to="/account-page" />
+       }
     return(
         <div>
             <nav>
@@ -22,7 +28,10 @@ export function SignUpPage(props){
             <SignUpForm />
         </div>
     )
-} 
+}
+   }
+    
+ 
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null

@@ -39,7 +39,7 @@ export const fetchSingleUserStoriesError = (error) => {
 }; 
 
 //fetch to create a short story for user
-export const FETCH_SINGLE_USER_STORY_REQUEST = 'CREATE_USER_STORY_REQUEST';
+export const CREATE_USER_STORY_REQUEST = 'CREATE_USER_STORY_REQUEST';
 export const createUserStoryRequest = () => {
     type: CREATE_USER_STORY__REQUEST
 }; 
@@ -109,6 +109,37 @@ export const fetchStories = () => (dispatch) => {
     }).then(stories => dispatch(fetchUserStoriesSuccess(stories))).catch(err => (fetchUserStoriesError(err)))
 };
 
-//get single story from the user
+//get all stories for the user
+export const fetchAStory = (id) => (dispatch) => {
+    dispatch(fetchSingleUserStoryRequest()); 
+    fetch(`${API_BASE_URL}/api/stories/${id}`, 
+    {
+        method: 'GET',
+    }
+    ).then(res => {
+        if(!res.ok){
+            return Promise.reject(res.statusText);
+        }
+        return res.json(); 
+    }).then(stories => dispatch(fetchSingleUserStoriesSuccess(stories)).catch(err => (fetchUserStoriesError(err))))
+} 
 
 //fetch to create a short story for user
+export const creatshortStory = (id, title, story) => (dispatch, getState) => {
+    dispatch(createUserStoryRequest()); 
+    fetch(`${API_BASE_URL}/api/stories/$${id}`, 
+    {
+        method: 'POST', 
+        headers: 'application/header', 
+        body: JSON.stringify({
+            title, 
+            story
+        })
+    }).then(res => {
+        if(!res.ok){
+            return Promise.reject(res.statusText); 
+        }
+        return res.json(); 
+    }).then(stories => dispatch(createUserStorySuccess()))
+    .catch(err => dispatch(createUserStoryError(err))); 
+}
