@@ -27,14 +27,14 @@ export default function reducer(state =initialState, action) {
     else if (action.type === storyActions.FETCH_USER_STORIES_SUCCESS) {
         return Object.assign({}, state, {
             loading: false, 
-            storyCollection: storyActions.storyCollection
+            // storyCollection: action.storyCollection
         })
     }
 
     else if (action.type === storyActions.FETCH_USER_STORIES_ERROR) {
         return Object.assign({}, state, {
             loading: false, 
-            error: storyActions.error
+            // error: storyActions.error
         })
     }
 
@@ -49,7 +49,7 @@ export default function reducer(state =initialState, action) {
     else if (action.type === storyActions.FETCH_SINGLE_USER_STORY_SUCCESS) {
         return Object.assign({}, state, {
             loading: false,
-            currentStory: storyActions.currentStory
+            // currentStory: storyActions.currentStory
     })
 }
 

@@ -1,8 +1,10 @@
 import React,{Component} from 'react'; 
+import {connect} from 'react-redux'; 
 import './accountPage.css'; 
 import {Link} from 'react-router-dom';
 import Sidebar from 'react-sidebar'; 
 import Collections from './collection'; 
+import { fetchStories } from '../actions/stories';
 
 /**
  * TODO: Connect AccountPage Component to mapStateToProps 
@@ -24,9 +26,29 @@ class AccountPage extends Component{
     onSetSidebarOpen(open) {
         this.setState({sidebarOpen:open}); 
     }
+
+    componentDidMount() { 
+        this.props.dispatch(fetchStories())
+    }
+
     render(){
 
+        console.log(this.props); 
+        
+        const collection = this.props.storyCollection.map((stories, index) => {
+            return(
+            <div className="collection-wrapper" key={index}>        <Collections                 
+                    title = {this.state.storyCollection.title}
+                    category = {this.state.storyCollection.category}
+                    story = {this.state.storyCollection.story}
+                    date = {this.state.storyCollection.date}  
+                />
+            </div>
+            )
+    }) 
         return(
+
+        
         <div className="accountPage">
             <nav>
                 <h1>Logo</h1>
@@ -88,7 +110,9 @@ class AccountPage extends Component{
 
             <h2 className='pageTitle'>Collections</h2>
             
-            <Collections 
+            {collection}
+
+            {/* <Collections 
                 title = {'Title'}
                 category = {'category'}
                 story = {'Lorem '}
@@ -101,10 +125,19 @@ class AccountPage extends Component{
                 category = {'category'}
                 story = {'Lorem '}
                 date = {'1/10/2019'}
-            />
+            /> */}
         </div>
         )
     }
 }
 
-export default AccountPage; 
+const mapStateToProps = state => {
+    console.log(state); 
+
+    return ({
+        storyCollection: state.storeAndPrompt.storyCollection
+    
+    })
+} 
+
+export default connect(mapStateToProps) (AccountPage); 

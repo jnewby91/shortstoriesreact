@@ -1,4 +1,4 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'; 
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux'; 
 import {reducer as formReducer} from 'redux-form'; 
 import thunk from 'redux-thunk'; 
 import { loadAuthToken } from './local-storage';
@@ -10,13 +10,13 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     combineReducers({
-    form: formReducer, 
-    storeAndPrompt:  reducer, 
-    auth: authReducer,
-}),
-composeEnhancers(
-    applyMiddleware(thunk)
-)
+        form: formReducer, 
+        storeAndPrompt:  reducer, 
+        auth: authReducer,
+    }), 
+    composeEnhancers(
+        applyMiddleware(thunk)
+    )
 );
 
 const authToken = loadAuthToken();
