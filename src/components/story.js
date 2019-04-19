@@ -1,22 +1,39 @@
 import React, {Component} from 'react'; 
+import {reduxForm, Field } from 'redux-form';
+import {creatshortStory} from '../actions/stories' 
 import './story.css'; 
 
 
 class StoryForm extends Component { 
+    constructor(props){
+        super(props)
+            this.state= {
+                title: '',
+                story: ''
+            }
+    }
+
+    handleSubmit(event){
+        event.preventDefault()
+        const title = this.state.title; 
+        const story = this.state.story;
+        this.props.dispatch(creatshortStory(title, story))
+    }
 
     render() {
         return (
-            <form className="storyForm">
+            <form onSubmit={this.handleSubmit} className="storyForm">
                 <label for="title" id="title">Title</label>
-                <input id="title"type="text" name="title" />
+                <Field  id="title"type="text" name="title" component="input" />
                 <label for="story" id="story" >Short Story</label>
-                <textarea name="story" id="story" cols="30" rows="10">
+                <Field name="story" id="story" cols="30" rows="10"  component="textarea"/>
                     Create one to two paragraphs describing your writing prompt. 
-                </textarea>
-                <input name="submit" type="submit" value="Submit" />
+                <button type="submit">Submit</button>
             </form>
         )
     }
 }
 
-export default StoryForm; 
+export default reduxForm({
+    form: 'story'
+}) (StoryForm); 

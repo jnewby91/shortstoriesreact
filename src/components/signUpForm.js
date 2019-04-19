@@ -1,6 +1,6 @@
 import React, {Component} from 'react'; 
 import {reduxForm, Field, focus} from 'redux-form';
-import {registerUser} from './actions/users';
+import {registerUser} from '../actions/users';
 
 
 

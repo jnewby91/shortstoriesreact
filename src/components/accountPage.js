@@ -35,13 +35,13 @@ class AccountPage extends Component{
 
         console.log(this.props); 
         
-        const collection = this.props.storyCollection.map((stories, index) => {
+        const collection = this.props.storyCollection.map((story, index) => {
             return(
             <div className="collection-wrapper" key={index}>        <Collections                 
-                    title = {this.state.storyCollection.title}
-                    category = {this.state.storyCollection.category}
-                    story = {this.state.storyCollection.story}
-                    date = {this.state.storyCollection.date}  
+                    title = {story.title}
+                    category = {story.category}
+                    story = {story.story}
+                    date = {story.date}  
                 />
             </div>
             )
@@ -62,6 +62,7 @@ class AccountPage extends Component{
                 sidebar={
                     <div>
                         <h2>Jnewby</h2>
+                        <p>{this.props.loggedIn}</p>
                         <p className="tagline">This is what stories mean to me!</p>
                       
                         <div className="buttonPanel">

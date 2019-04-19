@@ -10,8 +10,8 @@ import App from './App';
 import AccountPage from './components/accountPage'
 import CreateStory from './components/createStoryPage'
 import * as serviceWorker from './serviceWorker';
-import LogInPage from './LogInPage';
-import {SignUpPage} from './SignUpPage';
+import LogInPage from './components/LogInPage';
+import {SignUpPage} from './components/SignUpPage';
 
 ReactDOM.render(
     <Router>

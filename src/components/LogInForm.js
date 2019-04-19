@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {reduxForm, Field, focus} from 'redux-form';
-import { login } from './actions/auth';
+import { login } from '../actions/auth';
 
 
 export class LogInForm extends Component {

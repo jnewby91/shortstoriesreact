@@ -27,7 +27,7 @@ export default function reducer(state =initialState, action) {
     else if (action.type === storyActions.FETCH_USER_STORIES_SUCCESS) {
         return Object.assign({}, state, {
             loading: false, 
-            // storyCollection: action.storyCollection
+            storyCollection: action.data
         })
     }
 
