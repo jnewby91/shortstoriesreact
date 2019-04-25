@@ -16,28 +16,27 @@ import Redirect from 'react-router-dom/Redirect';
  */
 
 
-class AccountPage extends Component{
-    constructor(props){
+class AccountPage extends Component {
+    constructor(props) {
         super(props);
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         this.props.dispatch(fetchStories())
     }
 
 
-
-
-    render(){
-        if(this.props.loggedIn){   
+    render() {
+        console.log(this.props);
+        if (this.props.loggedIn) {
             const collection = this.props.storyCollection.map((story, index) => {
-                return(
-                    <div className="collection-wrapper" key={index}>        
-                        <Collections                 
-                            title = {story.title}
-                            category = {story.category}
-                            story = {story.story}
-                            date = {story.date}  
+                return (
+                    <div className="collection-wrapper" key={index}>
+                        <Collections
+                            title={story.title}
+                            category={story.category}
+                            story={story.story}
+                            date={story.date}
                         />
                     </div>
                 )
@@ -60,13 +59,14 @@ class AccountPage extends Component{
 
 
 const mapStateToProps = state => {
-    console.log(state); 
+    console.log(state);
 
     return ({
-        loggedIn: state.auth.currentUser !== null, 
+        loggedIn: state.auth.currentUser !== null,
+        currentUser: state.auth.currentUser,
         storyCollection: state.storeAndPrompt.storyCollection
-    
-    })
-} 
 
-export default connect(mapStateToProps) (AccountPage); 
+    })
+}
+
+export default connect(mapStateToProps)(AccountPage); 
