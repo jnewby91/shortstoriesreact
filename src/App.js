@@ -7,6 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Navigator />
         <header>
           <h2>Writing Prompts</h2>
           <p>Come up with gripping, thought-provoking, and challenging writing scenarios from a single prompt!</p>

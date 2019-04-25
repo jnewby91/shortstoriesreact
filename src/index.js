@@ -18,7 +18,6 @@ ReactDOM.render(
     <Router>
         <div>
             <Provider store={store}>
-                <Navigator />
                 <Route exact path='/' component={App}/>
                 <Route exact path='/account-page' component={AccountPage}/>
                 <Route exact path='/create-a-story-page' component={CreateStory}/>
