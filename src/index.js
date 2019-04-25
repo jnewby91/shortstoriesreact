@@ -12,11 +12,13 @@ import CreateStory from './components/createStoryPage'
 import * as serviceWorker from './serviceWorker';
 import LogInPage from './components/LogInPage';
 import {SignUpPage} from './components/SignUpPage';
+import Navigator from './components/nav';
 
 ReactDOM.render(
     <Router>
         <div>
             <Provider store={store}>
+                <Navigator />
                 <Route exact path='/' component={App}/>
                 <Route exact path='/account-page' component={AccountPage}/>
                 <Route exact path='/create-a-story-page' component={CreateStory}/>

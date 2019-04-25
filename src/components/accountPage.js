@@ -56,14 +56,6 @@ class AccountPage extends Component{
         }) 
             return(
             <div className="accountPage">
-                <nav>
-                    <h1>Logo</h1>
-                    <ul>
-                        <Link to="stories"><li>Stories</li></Link>
-                        <Link to="submit-writing-prompt"><li>Submit Writing Prompt</li></Link>
-                    </ul>
-                </nav>
-
                 <Sidebar  
                     sidebar={
                         <div>
