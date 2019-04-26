@@ -23,15 +23,23 @@ export class LogInForm extends Component {
         }
 
         return(
-            <form 
-                onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-                {error}
-                <label htmlFor="email">E-mail Address:</label>
-                <Field name="email" id="email" type="email" component="input" />
-                <label htmlFor="password">Password:</label>
-                <Field name="password" id="password" type="password" component="input" />
-                <button type="submit">Submit</button>
-            </form>
+            <div>
+          
+                <form 
+                    onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+                    <h2>Log Into Your Account</h2>
+                    <p>Enter your email address and password 
+                    create more stories, submit a prompt 
+                    and add to your collection
+                    </p>
+                    {error}
+                    {/* <label htmlFor="email">E-mail Address:</label> */}
+                    <Field name="email" id="email" type="email" placeholder="Email Address"component="input" />
+                    {/* <label htmlFor="password">Password:</label> */}
+                    <Field name="password" id="password" type="password" component="input" placeholder="Password" />
+                    <button type="submit">Log-In</button>
+                </form>
+            </div>
         ); 
     }
 }
