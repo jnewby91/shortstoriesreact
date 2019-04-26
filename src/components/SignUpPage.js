@@ -23,7 +23,7 @@ export class SignUpPage extends React.Component{
 }
    }
     
- 
+
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
