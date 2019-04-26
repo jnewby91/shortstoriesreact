@@ -72,11 +72,11 @@ export const login = (email, password) => dispatch => {
                         : 'Unable to login, please try again';
                 dispatch(authError(err));
                 // Could not authenticate, so return a SubmissionError for Redux Form
-                return Promise.reject(
-                    new SubmissionError({
-                        _error: message
-                    })
-                );
+                // return Promise.reject(
+                //     new SubmissionError({
+                //         _error: message
+                //     })
+                // );
         });
 }
 
