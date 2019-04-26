@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'; 
 import './log-in.css' 
 import LogInForm from './LogInForm';
+import { Navigator } from './nav';
 
 
 export class LogInPage extends React.Component{
@@ -19,13 +20,7 @@ export class LogInPage extends React.Component{
         
         return(
             <div> 
-                <nav>
-                    <h1>Logo</h1>
-                    <ul>
-                        <Link to="stories"><li>Stories</li></Link>
-                        <Link to="submit-writing-prompt"><li>Submit Writing Prompt</li></Link>
-                    </ul>
-                </nav>
+                <Navigator />
                 <LogInForm />
             </div>
         )
