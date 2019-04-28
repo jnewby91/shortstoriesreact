@@ -53,9 +53,7 @@ class AccountPage extends Component {
                 <Redirect to="/log-in" />
         )    
     }
-}
-        console.log(this.props); 
-        
+}        
 
 
 const mapStateToProps = state => {

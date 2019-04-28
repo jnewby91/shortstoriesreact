@@ -1,6 +1,6 @@
 import React, {Component} from 'react'; 
 import {connect} from 'react-redux'; 
-import {creatshortStory} from '../actions/stories' 
+import {createshortStory} from '../actions/stories' 
 import './story.css'; 
 
 
@@ -33,15 +33,18 @@ export class StoryForm extends React.Component {
 
 
     handleSubmit(event){
+        console.log('oweifjow');
         event.preventDefault();
         const title = this.state.title; 
         const story = this.state.story;
-        this.props.dispatch(creatshortStory(title, story));
+        this.props.dispatch(createshortStory(title, story));
+        console.log('i see this');
+
     }
 
         render(){
             return (
-                <form onSubmit={this.handleSubmit()} className="storyForm">
+                <form onSubmit={(e) => {this.handleSubmit(e)}} className="storyForm">
                     <label htmlFor="title" id="title">Title</label>
                     <input  id="title"type="text" name="title" value={this.state.title} onChange={(e)=> {this.handleTitleChange(e)}}/>
                     <label htmlFor="story" id="story" >Short Story</label>

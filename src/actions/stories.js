@@ -128,7 +128,7 @@ export const fetchAStory = (id) => (dispatch) => {
 } 
 
 //fetch to create a short story for user
-export const creatshortStory = (id, title, story) => (dispatch, getState) => {
+export const createshortStory = (id, title, story) => (dispatch, getState) => {
     dispatch(createUserStoryRequest()); 
     fetch(`${API_BASE_URL}/api/stories/$${id}`, 
     {
