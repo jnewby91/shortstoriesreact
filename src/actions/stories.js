@@ -128,12 +128,15 @@ export const fetchAStory = (id) => (dispatch) => {
 } 
 
 //fetch to create a short story for user
-export const createshortStory = (id, title, story) => (dispatch, getState) => {
+export const createshortStory = (title, story) => (dispatch, getState) => {
     dispatch(createUserStoryRequest()); 
-    fetch(`${API_BASE_URL}/api/stories/$${id}`, 
+    let authToken = getState().auth.authToken; 
+    fetch(`${API_BASE_URL}/api/stories`, 
     {
         method: 'POST', 
-        headers: 'application/header', 
+        headers: {'Content-Type':'application/json', 
+            Authorization: `Bearer ${authToken}`
+    }, 
         body: JSON.stringify({
             title, 
             story
