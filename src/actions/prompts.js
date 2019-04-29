@@ -56,25 +56,31 @@ export const fetchPrompts = () => dispatch => {
     .catch(err => (fetchSingleUserStoriesError(err)))
 }
 
-export const createAPrompt = (title, email, scenario, category) => dispatch => {
-    dispatch(fetch(`${API_BASE_URL}/api/prompts`, {
+
+/**
+ * I need to fix the bottom action to model createAStoryaction
+ */
+export const createAPrompt = (title,scenario,category) => (dispatch, getState) => {
+    dispatch(createPromptRequest());
+    let authToken = getState().auth.authToken;
+    fetch(`${API_BASE_URL}/api/prompts`, 
+    {
         method: 'POST', 
         headers: {
-            'content-type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authToken}`
         },
         body: JSON.stringify({
             title, 
-            email, 
             scenario, 
             category 
         })
-        .then(res => {
+    }).then(res => {
             if(!res.ok){
-                return Promise.reject
-                (res.statusText)
+                return Promise.reject(res.statusText)
             }
             return res.json(); 
-        }).then(prompts => dispatch(createPromptSuccess(prompts)))
-        .catch(err =>(createPromptError(err =>(createPromptError()))))
-    }))
-}
+        }).then(prompts => dispatch(createPromptSuccess()))
+        .catch(err => dispatch(createPromptError(err)))
+    }
+
