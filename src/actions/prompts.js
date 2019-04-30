@@ -83,4 +83,3 @@ export const createAPrompt = (title,scenario,category) => (dispatch, getState) =
         }).then(prompts => dispatch(createPromptSuccess()))
         .catch(err => dispatch(createPromptError(err)))
     }
-

@@ -1,4 +1,8 @@
-import React from 'react'; 
+import React from 'react';
+
+/**
+ * Create a onClick() so that a functions can happen in the component 
+ */
 
 export default function Prompt(props){
     return(

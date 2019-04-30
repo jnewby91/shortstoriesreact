@@ -75,5 +75,26 @@ else if (action.type === storyActions.CREATE_USER_STORY_ERROR) {
     })
 }
 
+else if (action.type === promptActions.FETCH_PROMPTS_REQUEST) {
+    return Object.assign({}, state, {
+        loading: true,
+        feedback: null, 
+        error: null
+    })
+}
+
+else if (action.type === promptActions.FETCH_PROMPTS_SUCCESS) {
+    return Object.assign({}, state, {
+        loading: false,
+        prompts: action.data
+    })
+}
+
+else if (action.type === promptActions.FETCH_PROMPTS_ERROR){
+    return Object.assign({}, state, {
+        loading: false,
+        error: action.error
+    })
+}
     return state; 
 }
