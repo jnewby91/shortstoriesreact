@@ -8,14 +8,14 @@ const initialState = {
     currentStory: [], 
     storyCollection: [],
     prompts: [],      
-    currentPrompt: [], 
+    currentPrompt: {title: 'loading...', scenario: 'loading...'}, 
     loading: false, 
     feedback: null, 
     error: null 
 }; 
 
 
-export default function reducer(state =initialState, action) {
+export default function reducer(state = initialState, action) {
     if (action.type === storyActions.FETCH_USER_STORIES_REQUEST){
         return Object.assign({}, state, {
             loading: true, 
@@ -86,7 +86,8 @@ else if (action.type === promptActions.FETCH_PROMPTS_REQUEST) {
 else if (action.type === promptActions.FETCH_PROMPTS_SUCCESS) {
     return Object.assign({}, state, {
         loading: false,
-        prompts: action.data
+        prompts: action.data,
+        currentPrompt: action.data[0]
     })
 }
 

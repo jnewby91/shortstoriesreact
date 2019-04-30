@@ -7,9 +7,10 @@ import React from 'react';
 export default function Prompt(props){
     return(
         <div className="prompt">
-            <h2>{props.title}</h2>
-            <p>{props.scenario}</p>
-            <button >Different Scenario</button>
+            <h2>{props.currentPrompt.title}</h2>
+            <p>{props.currentPrompt.scenario}</p>
+            <button>Back</button>
+            <button>Next</button>
         </div>
     )
 }

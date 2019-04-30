@@ -10,7 +10,10 @@ import { fetchPrompts } from '../actions/prompts';
 
 class CreateStory extends Component{
     constructor(props){
-        super(props); 
+        super(props);
+        this.state=({
+            promptIndex : 0
+        })
  
 }
 /**
@@ -28,16 +31,24 @@ class CreateStory extends Component{
         this.props.dispatch(fetchPrompts()); 
     }
 
+    changePrompts(number){
+        number = this.state.promptNum; 
+        this.setState({
+            promptNum: number + 1
+        })
+    }
+
     render(){  
+        const currentPrompt = this.props.prompts.filter((item, index) => {
+            return item.index === this.state.promptIndex;
+        });
+
         if(this.props.prompts){
             return(
                 <div className="createStory">
                     {console.log(this.props)}
                    <Navigator {...this.props} />
-                   <Prompt 
-                        title={this.props.prompts.length > 0 ? this.props.prompts[0].title : null} 
-                        scenario={this.props.prompts.length > 0 ? this.props.prompts[0].scenario : null} 
-                    />
+                   <Prompt currentPrompt={this.props.currentPrompt}/>
                     <StoryForm />
                 </div>
             )
@@ -48,7 +59,11 @@ class CreateStory extends Component{
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
     currentUser: state.auth.currentUser,
-    prompts: state.storeAndPrompt.prompts
+    prompts: state.storeAndPrompt.prompts,
+    currentPrompt: state.storeAndPrompt.currentPrompt
 })
 
 export default connect(mapStateToProps)(CreateStory); 
+
+
+{/* <Prompt currentPrompt={this.props.currentPrompt}/> */}
