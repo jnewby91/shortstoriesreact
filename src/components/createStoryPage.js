@@ -6,15 +6,18 @@ import StoryForm from './story';
 import { Navigator } from './nav';
 import {connect} from 'react-redux'; 
 import Redirect from 'react-router-dom/Redirect';
-import { fetchPrompts } from '../actions/prompts';
+import { fetchPrompts, goToNextPrompt, goToLastPrompt } from '../actions/prompts';
 
 class CreateStory extends Component{
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state=({
-            promptIndex : 0
+            promptIndex : 2
         })
- 
+
+this.handleGoBackward = this.handleGoBackward.bind(this); 
+this.handleGoForward = this.handleGoForward.bind(this); 
+
 }
 /**
  * Need to: 
@@ -33,9 +36,16 @@ class CreateStory extends Component{
 
     changePrompts(number){
         number = this.state.promptNum; 
-        this.setState({
-            promptNum: number + 1
-        })
+        
+    }
+
+    handleGoForward(){
+        this.props.dispatch(goToNextPrompt());
+    }
+
+    handleGoBackward(){
+        this.props.dispatch(goToLastPrompt());
+
     }
 
     render(){  
@@ -47,8 +57,10 @@ class CreateStory extends Component{
             return(
                 <div className="createStory">
                     {console.log(this.props)}
-                   <Navigator {...this.props} />
-                   <Prompt currentPrompt={this.props.currentPrompt}/>
+                    <Navigator {...this.props} />
+                    <Prompt currentPrompt={this.props.currentPrompt}/>
+                    <button onClick={this.handleGoBackward}>Back</button>
+                    <button onClick={this.handleGoForward}>Next</button>
                     <StoryForm />
                 </div>
             )

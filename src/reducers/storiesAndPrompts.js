@@ -7,7 +7,8 @@ import * as promptActions from '../actions/prompts';
 const initialState = {
     currentStory: [], 
     storyCollection: [],
-    prompts: [],      
+    prompts: [],
+    currentPromptIndex: 0,      
     currentPrompt: {title: 'loading...', scenario: 'loading...'}, 
     loading: false, 
     feedback: null, 
@@ -87,7 +88,7 @@ else if (action.type === promptActions.FETCH_PROMPTS_SUCCESS) {
     return Object.assign({}, state, {
         loading: false,
         prompts: action.data,
-        currentPrompt: action.data[0]
+        currentPrompt: action.data[state.currentPromptIndex]  
     })
 }
 
@@ -97,5 +98,27 @@ else if (action.type === promptActions.FETCH_PROMPTS_ERROR){
         error: action.error
     })
 }
+
+else if (action.type === promptActions.GO_TO_NEXT_PROMPT){
+    const newCurrentPromptIndex = state.currentPromptIndex + action.payload
+    if(newCurrentPromptIndex < state.prompts.length ) {
+        return Object.assign({}, state, {
+            currentPromptIndex: newCurrentPromptIndex,
+            currentPrompt: state.prompts[newCurrentPromptIndex]
+        })
+    }
+}
+
+ 
+else if (action.type === promptActions.GO_TO_LAST_PROMPT){
+    const newCurrentPromptIndex = state.currentPromptIndex - action.payload
+    if(newCurrentPromptIndex >= 0) {
+        return Object.assign({}, state, {
+            currentPromptIndex: newCurrentPromptIndex,
+            currentPrompt: state.prompts[newCurrentPromptIndex]
+        })
+    }
+}
+
     return state; 
 }

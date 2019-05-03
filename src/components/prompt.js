@@ -9,8 +9,6 @@ export default function Prompt(props){
         <div className="prompt">
             <h2>{props.currentPrompt.title}</h2>
             <p>{props.currentPrompt.scenario}</p>
-            <button>Back</button>
-            <button>Next</button>
         </div>
     )
 }

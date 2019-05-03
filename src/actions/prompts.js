@@ -41,6 +41,25 @@ export const createPromptError = (error) => ({
     error
 }); 
 
+export const GO_TO_NEXT_PROMPT = 'GO_TO_NEXT_PROMPT';
+export const goToNextPrompt = () => {
+    const payload = 1; 
+    return {
+        type: GO_TO_NEXT_PROMPT, 
+        payload
+    }
+}
+
+export const GO_TO_LAST_PROMPT = 'GO_TO_LAST_PROMPT';
+export const goToLastPrompt = () => {
+    const payload = 1; 
+    console.log('payload is here:',payload)
+    return {
+        type: GO_TO_LAST_PROMPT, 
+        payload
+    }
+}
+
 export const fetchPrompts = () => dispatch => {
     dispatch(fetchPromptsRequest()); 
     return fetch(`${API_BASE_URL}/api/prompts`,{
