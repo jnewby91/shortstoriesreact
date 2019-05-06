@@ -1,16 +1,19 @@
+
 nav{
-  background-color: grey; 
+  background-color: black; 
   position: fixed; 
   overflow: hidden; 
   width: 100%;
   top: 0;
-  min-height: 80px;  
-  
+  min-height: 50px;  
+  color: rgb(255, 255, 255);
 }
 nav h1 {
   float: left;
+  color: white; 
+  font-family: 'Cinzel Decorative', cursive;
   font-size: 40px;
-  padding: 10px 20px 0px 20px;
+  padding: 10px 50px 0px 50px;
 }
 
 nav ul{
@@ -24,24 +27,85 @@ nav ul{
 
 nav li{
   display: inline;
-  text-transform: uppercase;
+  color: white; 
+  text-decoration: none; 
   list-style: none;
-  margin: 10px;
+  margin: 45px;
+
+}
+
+button {
+  height: 45px;
+  width: 85px;
+  text-align: center;
+  font-family: unset;
+  font-size: 15px;
+  background-color: transparent;
+  border: solid white 3px;
+  color: white;
 }
 
 header{
   margin-top: 100px; 
   background-color: white; 
   text-align: center;
-  min-height: 200px;
+  min-height: 750px;
   padding: 2%; 
+  background-image: url('./WallpaperStudio10-113015.jpg');
+  background-position: center; 
+  background-size: cover;  
+}
+
+header p {
+  font-size: 2.2em;
+  text-align: left;
+  color: black; 
+  padding-left: 20px;
+  margin-top: 200px; 
+}
+
+.bold{
+  font-weight: bolder; 
+  color: #4367FB; 
+}
+
+.normal {
+  margin-top: 10px; 
+  text-align: left;
+  color: black;
+  font-weight: 200;
+  width: 40%;
+  font-size: 1.5em;
 }
 
 section.odd{
-  text-align: center;
-  background-color: darkgrey; 
-  min-height: 200px;
+  background-color: white; 
+  min-height: 400px;
   padding: 1%; 
+}
+
+.collection_icon, .prompts_icon, .share_icon, .write_icon{
+  border: 1px solid black; 
+  height: 150px; 
+}
+
+section.odd h2{
+  color: #4367FB; 
+  text-align: center;
+  text-transform: uppercase; 
+  font-size: 1.9em; 
+  font-weight: 300; 
+}
+
+section.odd h3{
+  text-align: center; 
+  font-size: 1.5em; 
+  font-weight: 300; 
+}
+
+section.odd p{
+  text-align: center; 
+  font-style: italic;
 }
 
 section.even{

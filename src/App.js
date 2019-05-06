@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navigator from './components/nav'
 
 import './App.css';
+import './grid.css'; 
 
 class App extends Component {
   render() {
@@ -9,32 +10,38 @@ class App extends Component {
       <div className="App">
         <Navigator />
         <header>
-          <h2>Writing Prompts</h2>
-          <p>Come up with gripping, thought-provoking, and challenging writing scenarios from a single prompt!</p>
-          <p>[HERO Image will go here]</p>
+          <p>Start new ideas from <span class='bold'>Scenarios. </span></p>
+          <p class='normal'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quod, pariatur ipsam harum repellendus ab doloribus enim dolore beatae est dignissimos nihil inventore, voluptatum, dolorum repudiandae maiores? Assumenda, similique animi.</p>
+
         </header>
         <section id="howItWorks"class="odd">
-            <h2> How It Works</h2>
-            <ol>
-                <li>Create a new short story and you’ll be asked to Select from the Category of Writing Prompts. </li>
-                <li>Next, a randomized prompt will be will be shown for you to write 1-2 paragraphs, 500-word 
-                    limit, describing the short story given in the writing prompt scenario </li>
-            </ol>
-        </section>
-        <section class="even">
-          <h2>Sign-Up!</h2>
-          <p> To get started writing scenarios, you’ll need an account. Fill out the fields below to create your user account! </p>
-        </section>
-        <section class="odd">
-          <h2>Grow A Collection!</h2>
-          <p>Grow your personal collection of short stories written overtime. Revisit, change, or delete the short stories written overtime. 
-              Make story public so the other people can view your story publicly or keep it private in your account-It’s your choice!</p>
-        </section>
-        <section class="even">
-          <h2>Submit Prompts</h2>
-          <p>The Writing Prompts database is always growing!</p>
-          <p>Submit a writing prompt and its category suggestion to have others create from your own scenarios. Our team will review the prompt to add twist and censor 
+            <h2> Why You Should Join Spark</h2>
+            <div class='row'> 
+              <div class='col-3'> 
+                  <div class='collection_icon'></div>
+                  <h3>Make A Collection</h3>
+                  <p>Grow your personal collection of short stories written overtime. Revisit, change, or delete the short stories written overtime. Make story public so the other people can view your story publicly or keep it private in your account-It’s your choice!</p>
+              </div>
+
+             <div class='col-3'>
+             <div class='prompts_icon'></div> 
+                  <h3>Submit Prompts</h3>
+                  <p>Submit a writing prompt and its category suggestion to have others create from your own scenarios. Our team will review the prompt to add twist and censor 
               any possible dark themes.</p>
+              </div>
+
+              <div class='col-3'>
+              <div class='share_icon'></div> 
+                  <h3>Make A Collection</h3>
+                  <p>Grow your personal collection of short stories written overtime. Revisit, change, or delete the short stories written overtime. Make story public so the other people can view your story publicly or keep it private in your account-It’s your choice!</p>
+              </div>
+
+              <div class='col-3'> 
+              <div class='write_icon'></div>
+                  <h3>Make A Collection</h3>
+                  <p>Grow your personal collection of short stories written overtime. Revisit, change, or delete the short stories written overtime. Make story public so the other people can view your story publicly or keep it private in your account-It’s your choice!</p>
+              </div>
+            </div>
         </section>
       </div>
     );

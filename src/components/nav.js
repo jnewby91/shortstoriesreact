@@ -15,7 +15,7 @@ export class Navigator extends React.Component{
         if(this.props.loggedIn){
             return(
                 <nav> 
-                    <Link to="/"><h1>Logo</h1> </Link>
+                    <Link to="/"><h1>Spark</h1> </Link>
                     <ul>
                         <Link to="account-page"><li>My Stories</li></Link>
                         <Link to="create-a-story-page"><li>Create Story</li></Link>
@@ -27,7 +27,7 @@ export class Navigator extends React.Component{
         }
             return(
                     <nav>
-                    <Link to="/"><h1>Logo</h1> </Link>
+                    <Link to="/"><h1>Spark</h1> </Link>
                     <ul>
                         <Link to="sign-up"><li>Sign Up</li></Link>
                         <Link to="log-in"><button>Log In</button></Link>
