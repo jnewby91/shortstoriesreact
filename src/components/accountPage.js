@@ -38,6 +38,8 @@ class AccountPage extends Component {
                             story={story.story}
                             date={story.date}
                         />
+                    <button>Edit Story</button>
+                    <button>Delete Story</button>
                     </div>
                 )
         }) 

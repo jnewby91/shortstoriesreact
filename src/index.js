@@ -14,6 +14,7 @@ import LogInPage from './components/LogInPage';
 import {SignUpPage} from './components/SignUpPage';
 import Navigator from './components/nav';
 import submitPromptPage from './components/submitPromptPage';
+import editStoryPage from './components/editStoryPage';
 
 ReactDOM.render(
     <Router>
@@ -23,6 +24,7 @@ ReactDOM.render(
                 <Route exact path='/account-page' component={AccountPage}/>
                 <Route exact path='/create-a-story-page' component={CreateStory}/>
                 <Route exact path='/submit-writing-prompt' component={submitPromptPage}/>
+                <Route exact path='/edit-story-page' component={editStoryPage}/>
                 <Route exact path='/sign-up' component={SignUpPage}/>
                 <Route exact path='/log-in' component={LogInPage}/>
             </Provider>
