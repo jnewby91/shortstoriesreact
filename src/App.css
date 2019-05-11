@@ -85,8 +85,30 @@ section.odd{
 }
 
 .collection_icon, .prompts_icon, .share_icon, .write_icon{
-  border: 1px solid black; 
-  height: 150px; 
+  /* border: 1px solid black;  */
+  width: 100px; 
+  height: 100px; 
+  margin: 0px auto;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: none ;
+}
+
+.write_icon{
+  background-image: url('./icons/icons8-idea-128.png');
+
+}
+
+.prompts_icon{
+  background-image: url('./icons/icons8-thinking-bubble-80.png');
+}
+
+.collection_icon{
+  background-image: url('./icons/icons8-thinking-bubble-80.png');
+}
+
+.share_icon{
+  background-image: url('./icons/icons8-thinking-bubble-80.png');
 }
 
 section.odd h2{
