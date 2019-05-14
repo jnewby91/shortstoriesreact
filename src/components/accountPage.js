@@ -13,33 +13,67 @@ import Redirect from 'react-router-dom/Redirect';
  * TODO:I will need to add map the stories in a collection variable that would allow the array objects to be displayed on the page
  * 
  * TODO: If props.logged is true then user will be logged will see account page, else redirect them to sign-up page
+ * 
+ * I'll need to submit the values of state when user clicks save on the page. 
+ * 
  */
 
 
 class AccountPage extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            editing: false, 
+            localStoryCollection: [...this.props.storyCollection],
+            currentTitle: '',
+            currentStory: '' 
+
+        };
     }
 
     componentDidMount() {
         this.props.dispatch(fetchStories())
     }
 
+    handleEditMode(e){
+        this.setState({
+            editing: !(this.state.editing)
+        })
+    }
+
+    handleEditUpdate(e, type, index){ 
+        const value = e.target.value; 
+        if(type === 'title'){
+            this.setState({
+                currentTitle: value
+            });
+        } else{
+            this.setState({
+                currentStory: value
+            });
+        }
+    }
 
     render() {
         console.log(this.props);
         if (this.props.loggedIn) {
-            const collection = this.props.storyCollection.map((story, index) => {
+            const collection = this.state.localStoryCollection.map((story, index) => {
                 return (
                     <div className="collection-wrapper" key={index}>
                         <Collections
+                            editing= {this.state.editing}
                             title={story.title}
                             category={story.category}
                             story={story.story}
                             date={story.date}
+                            onChange={(e) => {this.handleEditUpdate(e)}}
                         />
-                    <button>Edit Story</button>
-                    <button>Delete Story</button>
+                        <button 
+                            onClick={(e) => {this.handleEditMode(e)}}
+                        >
+                        {(this.state.editing) ? 'Save': 'Edit'}
+                        </button>   
+                        <button>Delete Story</button>
                     </div>
                 )
         }) 

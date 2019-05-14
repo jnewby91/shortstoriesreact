@@ -8,9 +8,17 @@ import '../components/collection.js'
 export default function Collections(props) {
     return(
         <div className= "collections">
-            <input value={props.title} readOnly={props.editing} />
+            <input 
+                value={props.title} 
+                readOnly={props.editing} 
+                // onChange={props.onChange}
+            />
             <p>{props.category}</p> 
-            <textarea value={props.story}  readOnly={props.editing}></textarea>
+            <textarea 
+                value={props.story}  
+                readOnly={props.editing} 
+                // onChange={props.onChange}
+            ></textarea>
             <p>{props.date}</p> 
         </div>
     )
