@@ -16,6 +16,10 @@ import Redirect from 'react-router-dom/Redirect';
  * 
  * I'll need to submit the values of state when user clicks save on the page. 
  * 
+ * LINE 30(currentTitle) & 31(currentStory): Needs to be the values story.title and story.currentStory respectively 
+ * IDEA: COULD DO A CONDITIONAL STATEMENT FOR SETTING THE VALUE OF TITLE AND STORY FOR COLLECTION
+ * WHILE EDITING IS FALSE TITLE IS EQUAL TO CURRENT TITLE, WHEN TRUE TITLE IS EQUAL TO CURRENT TITLE
+ * 
  */
 
 
@@ -24,24 +28,26 @@ class AccountPage extends Component {
         super(props);
         this.state = {
             editing: false, 
-            localStoryCollection: [...this.props.storyCollection],
+            localStoryCollection: this.props.storyCollection,
             currentTitle: '',
             currentStory: '' 
-
         };
+        this.handleEditUpdate = this.handleEditUpdate.bind(this); 
+        this.handleEditMode = this.handleEditMode.bind(this); 
     }
 
     componentDidMount() {
         this.props.dispatch(fetchStories())
     }
 
-    handleEditMode(e){
+    handleEditMode(){
         this.setState({
-            editing: !(this.state.editing)
+            isEditing: !(this.state.isEditing)
         })
     }
 
-    handleEditUpdate(e, type, index){ 
+    handleEditUpdate(e, type, index){
+        console.log(type, 'type'); 
         const value = e.target.value; 
         if(type === 'title'){
             this.setState({
@@ -55,25 +61,21 @@ class AccountPage extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props); 
         if (this.props.loggedIn) {
             const collection = this.state.localStoryCollection.map((story, index) => {
                 return (
                     <div className="collection-wrapper" key={index}>
                         <Collections
-                            editing= {this.state.editing}
+                            id={story.id}
                             title={story.title}
                             category={story.category}
                             story={story.story}
                             date={story.date}
-                            onChange={(e) => {this.handleEditUpdate(e)}}
-                        />
-                        <button 
-                            onClick={(e) => {this.handleEditMode(e)}}
-                        >
-                        {(this.state.editing) ? 'Save': 'Edit'}
-                        </button>   
-                        <button>Delete Story</button>
+                            handleEditUpdate={this.handleEditUpdate}
+                            handleEditMode={this.handleEditMode}
+
+                       />
                     </div>
                 )
         }) 

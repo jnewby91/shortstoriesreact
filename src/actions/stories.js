@@ -107,8 +107,15 @@ export const fetchStories = () => (dispatch) => {
         }
         return res.json();
     }).then(stories => {
-        console.log('STORIES ', stories); 
-        dispatch(fetchUserStoriesSuccess(stories))
+        var result = stories.map((story, index) => {
+            var newObj = Object.assign({}, story);
+            // here we add a new key/value pairs that may be modified later
+            newObj.isEditing = false;
+            return newObj;
+          })
+        console.log('STORIES ', result); 
+        
+        dispatch(fetchUserStoriesSuccess(result))
     }).catch(err => (fetchUserStoriesError(err))) 
 };
 

@@ -16,20 +16,33 @@
   .pageTitle {
   margin-top: 200px;
   text-align: center;
+  font-family: 'Roboto'; 
+  font-size: 30px; 
+  text-decoration: underline; 
 }
 
-  .collections {
-    width: 30%;
-    margin: 50px auto;
-    background-color: lightgrey;
-    padding: 2%;
+.collection-wrapper button{
+  height: 50px;
+  width: 150px;
+  color: white; 
+  text-align: center;
+  font-family: unset;
+  border:none;  
+  background-color: teal;
+  font-size: 16px;
+  border-radius: 3px;
+  margin: 0px 10px; 
 }
 
-  .collections p {
-    font-style: italic;
-    line-height: 1.6;
-    margin-top: 10px;
-    margin-bottom: 25px;
+.collection-wrapper button:hover{
+  box-shadow: 2px 3px 3px 0px grey;
+  cursor: pointer;
 }
   
+.button_wrapper{
+  text-align: center;  
+}
+
+/* .button_wrapper button{
+} */
 
