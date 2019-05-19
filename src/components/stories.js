@@ -1,9 +1,9 @@
 import React,{Component} from 'react'; 
 import {connect} from 'react-redux'; 
-import './accountPage.css'; 
+import './stories.css'; 
 import {Link} from 'react-router-dom';
-import Navigator from '../components/nav'
-import Collections from './collection'; 
+import Navigator from './nav'
+import Story from './story'; 
 import { fetchStories } from '../actions/stories';
  
 import Redirect from 'react-router-dom/Redirect';
@@ -23,12 +23,13 @@ import Redirect from 'react-router-dom/Redirect';
  */
 
 
-class AccountPage extends Component {
+class Stories extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editing: false, 
+            isEditing: false, 
             localStoryCollection: this.props.storyCollection,
+            currentId: '', 
             currentTitle: '',
             currentStory: '' 
         };
@@ -40,9 +41,18 @@ class AccountPage extends Component {
         this.props.dispatch(fetchStories())
     }
 
-    handleEditMode(){
-        this.setState({
-            isEditing: !(this.state.isEditing)
+    handleEditMode(e){
+        let selectedStory = e.target.getAttribute('data-storyid'); 
+        console.log('here is the id', selectedStory); 
+        //copy the object(localStoryCollection) , loop through array,replaces the one that is matching,go to state, forEach and find the id, then  
+        let updatedStories = this.state.localStoryCollection.map((story) => {
+            if(story.id === selectedStory){
+                story.isEditing = !story.isEditing;  
+            }
+            return story; 
+        })
+            this.setState({
+            localStoryCollection: updatedStories
         })
     }
 
@@ -61,28 +71,27 @@ class AccountPage extends Component {
     }
 
     render() {
-        console.log(this.props); 
         if (this.props.loggedIn) {
             const collection = this.state.localStoryCollection.map((story, index) => {
                 return (
-                    <div className="collection-wrapper" key={index}>
-                        <Collections
-                            id={story.id}
+                    <div className="stories-wrapper" key={index}>
+                        <Story
+                            storyId={story.id}
                             title={story.title}
+                            isEditing={story.isEditing}
                             category={story.category}
                             story={story.story}
                             date={story.date}
                             handleEditUpdate={this.handleEditUpdate}
                             handleEditMode={this.handleEditMode}
-
                        />
                     </div>
                 )
         }) 
             return(
-                <div className="accountPage">
+                <div className="storiesPage">
                     <Navigator />
-                    <h2 className='pageTitle'>Collections</h2>
+                    <h2 className='pageTitle'>Stories</h2>
                         {collection}
                 </div>
             )
@@ -105,4 +114,4 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps)(AccountPage); 
+export default connect(mapStateToProps)(Stories); 

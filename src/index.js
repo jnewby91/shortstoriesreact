@@ -7,7 +7,7 @@ import {Provider} from 'react-redux';
 
 import './index.css';
 import App from './App';
-import AccountPage from './components/accountPage'
+import Stories from './components/stories'
 import CreateStory from './components/createStoryPage'
 import * as serviceWorker from './serviceWorker';
 import LogInPage from './components/LogInPage';
@@ -21,7 +21,7 @@ ReactDOM.render(
         <div>
             <Provider store={store}>
                 <Route exact path='/' component={App}/>
-                <Route exact path='/account-page' component={AccountPage}/>
+                <Route exact path='/stories-page' component={Stories}/>
                 <Route exact path='/create-a-story-page' component={CreateStory}/>
                 <Route exact path='/submit-writing-prompt' component={submitPromptPage}/>
                 <Route exact path='/edit-story-page' component={editStoryPage}/>

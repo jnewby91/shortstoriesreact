@@ -1,7 +1,7 @@
 import React from 'react'; 
 import {connect} from 'react-redux'; 
 import { Navigator } from './nav';
-import { StoryForm } from './story';
+import { StoryForm } from './storyForm';
 
 
 class EditStory extends React.Component{

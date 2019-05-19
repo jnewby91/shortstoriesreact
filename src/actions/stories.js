@@ -112,9 +112,7 @@ export const fetchStories = () => (dispatch) => {
             // here we add a new key/value pairs that may be modified later
             newObj.isEditing = false;
             return newObj;
-          })
-        console.log('STORIES ', result); 
-        
+          })        
         dispatch(fetchUserStoriesSuccess(result))
     }).catch(err => (fetchUserStoriesError(err))) 
 };

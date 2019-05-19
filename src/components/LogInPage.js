@@ -15,7 +15,7 @@ export class LogInPage extends React.Component{
 
     render(){
         if(this.props.loggedIn){
-            return <Redirect to="/account-page"/>
+            return <Redirect to="/stories-page"/>
         }
         
         return(

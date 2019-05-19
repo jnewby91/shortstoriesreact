@@ -1,58 +1,64 @@
 import React, {Component} from 'react'; 
-import {connect} from 'react-redux'; 
-import {createshortStory} from '../actions/stories' 
-import './story.css'; 
+import {Link} from 'react-router-dom'; 
+import './story.css';
 
+//Make a prop that allows the readonly property to be added| This is why I made props.editable
+//onChange need to be able to update the value of title and story
 
-export class StoryForm extends React.Component { 
+export default class Story extends Component{
     constructor(props){
-        super(props);
-            this.state = {
-                title: '',
-                story: ''
-            }
-        
-        this.handleTitleChange = this.handleTitleChange.bind(this);
-        this.handleStoryChange = this.handleStoryChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }   
-    
-    handleTitleChange(event){
-        console.log(event);
-        this.setState({
-            title: event.target.value
-        });
-    }
-
-    handleStoryChange(event){
-        console.log(event);
-        this.setState({
-            story: event.target.value
-        });
-    }
-
-
-    handleSubmit(event){
-        console.log('oweifjow');
-        event.preventDefault();
-        const title = this.state.title; 
-        const story = this.state.story;
-        this.props.dispatch(createshortStory(title, story));
-        console.log('i see this');
-
-    }
-
-        render(){
-            return (
-                <form onSubmit={(e) => {this.handleSubmit(e)}} className="storyForm">
-                    <label htmlFor="title" id="title">Title</label>
-                    <input  id="title"type="text" name="title" value={this.state.title} onChange={(e)=> {this.handleTitleChange(e)}}/>
-                    <label htmlFor="story" id="story" >Short Story</label>
-                    <textarea name="story" type="textarea" id="story" cols="30" rows="10" value={this.state.story} onChange={(e)=> {this.handleStoryChange(e)}} />
-                    <button type="submit">Submit</button>
-                </form>
-            );
+        super(props); 
+        this.state = {
+            title: this.props.title, 
+            story: this.props.story
         }
     }
 
-export default connect()(StoryForm);
+//I want this to only update localstate, until you hit save in the parent component
+
+
+    handleChange(e, type){
+        //handle what is coming in and update state 
+        let value = e.target.value; 
+        if(type === 'title'){
+            this.setState({
+                title: value
+            }); 
+        } else {
+            this.setState({
+                story: value
+            })
+        }
+    }
+    render(){ 
+
+        return(
+            <div className= "story">
+                <input  
+                    value={this.state.title} 
+                    readOnly={!this.props.isEditing} 
+                    onChange={(e) => this.handleChange(e, 'title')}
+                />
+                <p>{this.props.category}</p> 
+                <textarea 
+                    value={this.props.story}  
+                    readOnly={!this.props.isEditing} 
+                    onChange={(e) => this.handleChange(e, 'story')}
+                ></textarea>
+                <p>{this.props.date}</p> 
+                <div className="button_section">
+                    <button 
+                        onClick={(e) => this.props.handleEditMode(e)}
+                        data-storyid={this.props.storyId}
+                    >
+                    {(this.props.isEditing) ? 'Save Story': 'Edit Story'}
+                    </button>   
+                    <button>Delete Story</button>
+                </div>
+            </div>
+            )
+        }
+
+    }
+
+    
