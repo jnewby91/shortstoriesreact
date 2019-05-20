@@ -24,7 +24,7 @@ export default class Story extends Component{
             this.setState({
                 title: value
             }); 
-        } else {
+        } else{
             this.setState({
                 story: value
             })
@@ -41,7 +41,7 @@ export default class Story extends Component{
                 />
                 <p>{this.props.category}</p> 
                 <textarea 
-                    value={this.props.story}  
+                    defaultValue={this.props.story}  
                     readOnly={!this.props.isEditing} 
                     onChange={(e) => this.handleChange(e, 'story')}
                 ></textarea>
