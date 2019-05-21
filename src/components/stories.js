@@ -4,7 +4,7 @@ import './stories.css';
 import {Link} from 'react-router-dom';
 import Navigator from './nav'
 import Story from './story'; 
-import { fetchStories } from '../actions/stories';
+import { fetchStories, editShortStory } from '../actions/stories';
  
 import Redirect from 'react-router-dom/Redirect';
 
@@ -41,7 +41,8 @@ class Stories extends Component {
         this.props.dispatch(fetchStories())
     }
 
-    handleEditMode(e){
+    handleEditMode(e,updatedStory){
+        console.log(updatedStory); 
         let selectedStory = e.target.getAttribute('data-storyid'); 
         console.log('here is the id', selectedStory); 
         //copy the object(localStoryCollection) , loop through array,replaces the one that is matching,go to state, forEach and find the id, then  
@@ -54,6 +55,10 @@ class Stories extends Component {
             this.setState({
             localStoryCollection: updatedStories
         })
+        //i think this is where I would dispatch a PUT method to change the stories
+        console.log(updatedStory.id);
+        this.props.dispatch(editShortStory(updatedStory.id, updatedStory.title, updatedStory.story)); 
+        //in the future add a cancel button 
     }
 
     handleEditUpdate(e, type, index){
@@ -69,6 +74,7 @@ class Stories extends Component {
             });
         }
     }
+
 
     render() {
         if (this.props.loggedIn) {

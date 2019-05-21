@@ -1,4 +1,5 @@
 import {API_BASE_URL} from '../config'; 
+import { normalizeResponseErrors } from './utils';
 
 //fetch to get all stories from the user
 
@@ -153,4 +154,26 @@ export const createshortStory = (title, story) => (dispatch, getState) => {
         return res.json(); 
     }).then(stories => dispatch(createUserStorySuccess()))
     .catch(err => dispatch(createUserStoryError(err))); 
+}
+
+//fetch to edit a short story for user
+export const editShortStory = (id, title, story) => (dispatch, getState) => {
+    dispatch(editUserStoryRequest());
+    let authToken = getState().auth.authToken; 
+    fetch(`${API_BASE_URL}/api/stories/${id}`, {
+        method: `PUT`, 
+        headers: {
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authToken}`,
+        }, 
+        body: JSON.stringify({
+            id: id, 
+            title,
+            story
+        })
+    })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(() => dispatch(editUserStorySuccess()))
+    .catch(err => dispatch(editUserStoriesError(err)))  
 }

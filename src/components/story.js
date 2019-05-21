@@ -9,6 +9,7 @@ export default class Story extends Component{
     constructor(props){
         super(props); 
         this.state = {
+            id: this.props.storyId,
             title: this.props.title, 
             story: this.props.story
         }
@@ -48,7 +49,8 @@ export default class Story extends Component{
                 <p>{this.props.date}</p> 
                 <div className="button_section">
                     <button 
-                        onClick={(e) => this.props.handleEditMode(e)}
+                        //send up state object as well 
+                        onClick={(e) => this.props.handleEditMode(e, this.state)}
                         data-storyid={this.props.storyId}
                     >
                     {(this.props.isEditing) ? 'Save Story': 'Edit Story'}
