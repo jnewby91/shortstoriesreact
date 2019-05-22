@@ -61,6 +61,12 @@ class Stories extends Component {
         //in the future add a cancel button 
     }
 
+    // handlDeleteStory(e){
+    //     this.props.dispatch()
+
+    // }
+
+
     handleEditUpdate(e, type, index){
         console.log(type, 'type'); 
         const value = e.target.value; 

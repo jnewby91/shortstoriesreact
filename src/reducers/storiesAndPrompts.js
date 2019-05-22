@@ -76,6 +76,30 @@ else if (action.type === storyActions.CREATE_USER_STORY_ERROR) {
     })
 }
 
+else if (action.type === storyActions.EDIT_USER_STORY_REQUEST) {
+    return Object.assign({}, state, {
+        loading: true,
+        feedback: null, 
+        error: null
+    })
+}
+
+else if (action.type === storyActions.EDIT_USER_STORY_SUCCESS) {
+    return Object.assign({}, state, {
+        loading: false,
+        feedback: null, 
+        error: null
+    })
+}
+
+else if (action.type === storyActions.EDIT_USER_STORY_ERROR) {
+    return Object.assign({}, state, {
+        loading: false,
+        feedback: null, 
+        error: null
+    })
+}
+
 else if (action.type === promptActions.FETCH_PROMPTS_REQUEST) {
     return Object.assign({}, state, {
         loading: true,
@@ -119,6 +143,5 @@ else if (action.type === promptActions.GO_TO_LAST_PROMPT){
         })
     }
 }
-
     return state; 
 }
