@@ -1,15 +1,15 @@
 import React, {Component} from 'react'; 
 import {connect} from 'react-redux'; 
 import {createshortStory} from '../actions/stories' 
-import './story.css'; 
+import './storyForm.css'; 
 
 
 export class StoryForm extends React.Component { 
     constructor(props){
         super(props);
             this.state = {
-                title: '',
-                story: ''
+                title: 'Whats the Title of Your Story? ',
+                story: 'Make your story epic!'
             }
         
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -48,8 +48,8 @@ export class StoryForm extends React.Component {
                     <label htmlFor="title" id="title">Title</label>
                     <input  id="title"type="text" name="title" value={this.state.title} onChange={(e)=> {this.handleTitleChange(e)}}/>
                     <label htmlFor="story" id="story" >Short Story</label>
-                    <textarea name="story" type="textarea" id="story" cols="30" rows="10" value={this.state.story} onChange={(e)=> {this.handleStoryChange(e)}} />
-                    <button type="submit">Submit</button>
+                    <textarea name="story" type="textarea" id="story" value={this.state.story} onChange={(e)=> {this.handleStoryChange(e)}} />
+                    <button id="submit_button" type="submit">Submit</button>
                 </form>
             );
         }

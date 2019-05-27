@@ -25,7 +25,7 @@ export class LogInForm extends Component {
         return(
             <div>
           
-                <form 
+                <form className="login-form"
                     onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
                     <h2>Log Into Your Account</h2>
                     <p>Enter your email address and password 
@@ -37,7 +37,7 @@ export class LogInForm extends Component {
                     <Field name="email" id="email" type="email" placeholder="Email Address"component="input" />
                     {/* <label htmlFor="password">Password:</label> */}
                     <Field name="password" id="password" type="password" component="input" placeholder="Password" />
-                    <button type="submit">Log-In</button>
+                    <button id="submit_button" type="submit">Log-In</button>
                 </form>
             </div>
         ); 
