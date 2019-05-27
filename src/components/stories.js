@@ -4,7 +4,7 @@ import './stories.css';
 import {Link} from 'react-router-dom';
 import Navigator from './nav'
 import Story from './story'; 
-import { fetchStories, editShortStory } from '../actions/stories';
+import { fetchStories, editShortStory, deleteShortStory } from '../actions/stories';
  
 import Redirect from 'react-router-dom/Redirect';
 
@@ -35,6 +35,7 @@ class Stories extends Component {
         };
         this.handleEditUpdate = this.handleEditUpdate.bind(this); 
         this.handleEditMode = this.handleEditMode.bind(this); 
+        this.handleDeleteStory = this.handleDeleteStory.bind(this); 
     }
 
     componentDidMount() {
@@ -61,10 +62,11 @@ class Stories extends Component {
         //in the future add a cancel button 
     }
 
-    // handlDeleteStory(e){
-    //     this.props.dispatch()
-
-    // }
+    handleDeleteStory(e){
+     let selectedStory = e.target.getAttribute('data-storyid');    
+     console.log(selectedStory);  
+     this.props.dispatch(deleteShortStory(selectedStory)).then(this.props.dispatch(fetchStories())); 
+    }
 
 
     handleEditUpdate(e, type, index){
@@ -96,6 +98,7 @@ class Stories extends Component {
                             date={story.date}
                             handleEditUpdate={this.handleEditUpdate}
                             handleEditMode={this.handleEditMode}
+                            handleDeleteStory={this.handleDeleteStory}
                        />
                     </div>
                 )

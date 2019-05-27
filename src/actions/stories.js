@@ -89,7 +89,7 @@ export const deleteUserStorySuccess = (data) => ({
 }); 
 
 export const DELETE_USER_STORY_ERROR = 'DELETE_USER_STORY_ERROR';
-export const deleteUserStorYError = (error) => ({
+export const deleteUserStoryError = (error) => ({
     type: DELETE_USER_STORY_ERROR,
     error
 }); 
@@ -176,4 +176,20 @@ export const editShortStory = (id, title, story) => (dispatch, getState) => {
     .then(res => res.json())
     .then(() => dispatch(editUserStorySuccess()))
     .catch(err => dispatch(editUserStoriesError(err)))  
+}
+
+//fetch to delete a short story for user
+export const deleteShortStory = (id) => (dispatch, getState) => {
+    dispatch(deleteUserStoryRequest());
+    let authToken = getState().auth.authToken; 
+    fetch(`${API_BASE_URL}/api/stories/${id}`, {
+        method: `DELETE`, 
+        headers: {
+            'Content-Type':'application/json',
+            Authorization: `Bearer ${authToken}`,
+        }})
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(() => dispatch(deleteUserStorySuccess()))
+    .catch(err => dispatch(deleteUserStoryError(err)))  
 }

@@ -55,7 +55,11 @@ export default class Story extends Component{
                     >
                     {(this.props.isEditing) ? 'Save Story': 'Edit Story'}
                     </button>   
-                    <button>Delete Story</button>
+                    <button
+                        onClick={(e) => this.props.handleDeleteStory(e)}
+                        data-storyid={this.props.storyId}
+                    
+                    >Delete Story</button>
                 </div>
             </div>
             )
