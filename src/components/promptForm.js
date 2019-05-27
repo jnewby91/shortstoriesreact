@@ -77,7 +77,7 @@ class PromptForm extends React.Component{
                     <option value="Drama">Drama</option>
                     <option value="Sports">Sports</option>
             </select>
-            <button type="submit">Submit</button>
+            <button id="submit_button" type="submit">Submit</button>
         </form>
         )
     }

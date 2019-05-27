@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './createStoryPage.css';
 import {Link} from 'react-router-dom';
 import Prompt from './prompt';
-import StoryForm from './story';
+import StoryForm from './storyForm';
 import { Navigator } from './nav';
 import {connect} from 'react-redux'; 
 import Redirect from 'react-router-dom/Redirect';
@@ -59,8 +59,10 @@ this.handleGoForward = this.handleGoForward.bind(this);
                     {console.log(this.props)}
                     <Navigator {...this.props} />
                     <Prompt currentPrompt={this.props.currentPrompt}/>
-                    <button onClick={this.handleGoBackward}>Back</button>
-                    <button onClick={this.handleGoForward}>Next</button>
+                    <div className="button_section">
+                        <button id="submit_button" onClick={this.handleGoBackward}>Back</button>
+                        <button id="submit_button" onClick={this.handleGoForward}>Next</button>
+                    </div>
                     <StoryForm />
                 </div>
             )

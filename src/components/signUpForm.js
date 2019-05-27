@@ -33,7 +33,7 @@ export class SignUpForm extends Component {
                 <label htmlFor="password">Password: </label>
                 <Field name="password" id="password" type="password" component="input"
                 ></Field>
-                <button type="submit">Register</button>
+                <button id="submit_button" type="submit">Register</button>
             </form>
         )
     }
