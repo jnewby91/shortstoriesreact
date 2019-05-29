@@ -3,28 +3,55 @@
     margin: 10% auto;
     border: 1px solid grey; 
 } */
+
+.scenario_section {
+    height: 400px;
+    padding: 40px 0px;
+}
+
 .createStory form {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 30px auto 20px auto;
-    width: 300px;
+    width: 500px;
     text-align: center;
 }
-.prompt {
-    width: 50%;
-    margin: 200px auto 20px auto;
-    border: 1px solid grey;
+.page_banner {
+    background-color: #FDD540;
+    height: 700px;
+    overflow: hidden;
+}   
+.page_banner h2{
+    font-family: 'Cinzel Decorative'; 
+    font-size: 2.2em;
+    text-align: center;
+    color: black; 
+    padding-left: 20px;
+    margin-top: 200px; 
 }
 
+.page_banner p {
+    font-size: 1.8em;
+    text-align: center;
+    width: 60%;
+    color: black;
+    margin: 50px auto;
+}
 .prompt h2 {
-    text-align: center; 
-
+    text-align: center;
+    font-size: 2em;
 }
 
-.prompt p{
-    padding: 20px; 
+.prompt p {
+    padding: 0px 20px 0px 20px;
+    width: 55%;
+    font-size: 1.3em;
+    margin: 80px auto;
 }
-
+.prompt button {
+    display: block;
+    margin: 50px auto;
+}
 .prompt button {
     display: block;
     margin: 50px auto;
@@ -32,9 +59,10 @@
 
 .button_section{
     text-align: center;  
+    margin-top: 100px; 
   }
 
-#submit_button{
+.button_section #submit_button{
     height: 50px;
     width: 150px; 
     text-align: center; 
@@ -44,5 +72,28 @@
     background-color: teal;
     font-size: 16px;
     border-radius: 3px;
-    margin: 40px 10px; 
+    margin: 40px 100px; 
+}
+
+
+.shortStory_section {
+    background-color: teal;
+    height: 700px;
+    padding-top: 30px;
+    margin-top: 50px;
+}
+
+.shortStory_section h2 {
+    font-family: 'Cinzel Decorative';
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.shortStory_section p {
+    color: white;
+    font-size: 1.3em;
+    text-align: center;
 }

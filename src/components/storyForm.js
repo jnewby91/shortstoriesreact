@@ -45,9 +45,9 @@ export class StoryForm extends React.Component {
         render(){
             return (
                 <form onSubmit={(e) => {this.handleSubmit(e)}} className="storyForm">
-                    <label htmlFor="title" id="title">Title</label>
+                    {/* <label htmlFor="title" id="title">Title</label> */}
                     <input  id="title"type="text" name="title" value={this.state.title} onChange={(e)=> {this.handleTitleChange(e)}}/>
-                    <label htmlFor="story" id="story" >Short Story</label>
+                    {/* <label htmlFor="story" id="story" >Short Story</label> */}
                     <textarea name="story" type="textarea" id="story" value={this.state.story} onChange={(e)=> {this.handleStoryChange(e)}} />
                     <button id="submit_button" type="submit">Submit</button>
                 </form>

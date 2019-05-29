@@ -58,12 +58,22 @@ this.handleGoForward = this.handleGoForward.bind(this);
                 <div className="createStory">
                     {console.log(this.props)}
                     <Navigator {...this.props} />
-                    <Prompt currentPrompt={this.props.currentPrompt}/>
-                    <div className="button_section">
-                        <button id="submit_button" onClick={this.handleGoBackward}>Back</button>
-                        <button id="submit_button" onClick={this.handleGoForward}>Next</button>
+                    <div className="page_banner">
+                        <h2>Create Your Story</h2>
+                        <p>Search from the scenarios below to chose the theme of your short story! These created are user created scenarios so it may or not be ficiton! </p>
                     </div>
-                    <StoryForm />
+                    <div className="scenario_section">
+                        <Prompt currentPrompt={this.props.currentPrompt}/>
+                        <div className="button_section">
+                            <button id="submit_button" onClick={this.handleGoBackward}>Back</button>
+                            <button id="submit_button" onClick={this.handleGoForward}>Next</button>
+                        </div>
+                    </div>
+                    <div className="shortStory_section">
+                        <h2>Start writing</h2>
+                        <p>Your Epic Story is waiting to made!</p>
+                        <StoryForm />
+                    </div>
                 </div>
             )
         }

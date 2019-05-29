@@ -1,18 +1,23 @@
 .storyForm input {
-    /* text-align: center; */
     border: none;
     border-width: .7 px;
     border-bottom: 2px solid teal;
-    font-size: 24px;
-    width: 100%;
+    font-size: 1.7em;
+    width: 120%;
     height: 50px;
-    margin: 10px 5px;
+    margin: 10px 0px;
+    box-shadow: 1px 3px 2px 0px black;
 }
 
 .storyForm textarea {
     border: none;
-    width: 500px; 
-    height: 100px; 
+    width: 608px;
+    height: 200px;
     font-family: Roboto;
-    font-size: 16px;
+    font-size: 1.7em;
+    box-shadow: 1px 3px 2px 0px black;
+}
+
+.storyForm #submit_button{
+    background-color: black;
 }

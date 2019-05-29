@@ -1,18 +1,18 @@
 .prompt {
-    width: 50%;
-    margin: 10% auto 20px auto;
-    border: 1px solid grey;
+
 }
 
 .prompt h2 {
-    text-align: center; 
-
+    text-align: center;
+    font-size: 2em;
 }
 
-.prompt p{
-    padding: 20px; 
+.prompt p {
+    padding: 0px 20px 0px 20px;
+    width: 55%;
+    font-size: 1.3em;
+    margin: 20px auto;
 }
-
 .prompt button {
     display: block;
     margin: 50px auto;
