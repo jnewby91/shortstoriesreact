@@ -41,11 +41,6 @@
   "bugs": {
     "url": "https://github.com/jnewby91/shortstoriesreact/issues"
   },
-  "homepage": "https://github.com/jnewby91/shortstoriesreact#readme",
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "homepage": "https://github.com/jnewby91/shortstoriesreact#readme"
+
 }
