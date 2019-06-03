@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "jwt-decode": "^2.2.0",
+    "prefixer": "0.0.3",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.1",
@@ -18,7 +19,10 @@
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.1.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "bootstrap": "4.1.1",
+    "webpack": "^3.12.0"
   },
   "scripts": {
     "start": "react-scripts start",
