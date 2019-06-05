@@ -46,9 +46,10 @@ const storeAuthInfo = (authToken, dispatch) => {
 }
 
 //Login fetch request
+//`${API_BASE_URL}api/auth/login`
 export const login = (email, password) => dispatch => {
     dispatch(authRequest());
-    return fetch(`${API_BASE_URL}/api/auth/login`, {
+    return fetch(`https://sparkscenarios-api.herokuapp.com/api/auth/login`, {
         method: 'POST',
         headers: [
             ['content-type', 'application/json']
